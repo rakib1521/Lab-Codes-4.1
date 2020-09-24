@@ -1,0 +1,13 @@
+abbd
+
+
+1+1
+
+
+
+
+
+b=1
+if(a)b=1
+while(a)b=1
+for(a=0;a<2;c=1)b=3

@@ -1,0 +1,29 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+
+  A FACULTY.fName%TYPE;
+  B COURSE.cname%TYPE;
+  C FACULTY.fName%TYPE := '&x';
+  D integer :=0;
+  
+BEGIN
+	FOR R IN (SELECT F.fName,C.cname FROM FACULTY F, COURSE C WHERE F.Fid=C.Fid ) LOOP
+	  A := R.fName;
+	  B := R.cname; 
+	  IF (A=C)THEN
+	  DBMS_OUTPUT.PUT_LINE('FACULTY TABLE');
+	  D:=1;
+	  EXIT;
+	  ELSIF (B=C)THEN
+	  DBMS_OUTPUT.PUT_LINE('COURSE TABLE');
+	  D:=1;
+	  EXIT;
+	  ENd IF;
+	END LOOP;
+	IF D=0 THEN
+	DBMS_OUTPUT.PUT_LINE('NOT FOUND');
+	END IF;
+	
+END;
+/
